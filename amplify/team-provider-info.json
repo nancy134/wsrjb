@@ -10,6 +10,11 @@
       "StackName": "amplify-wsrjb-dev-9f194",
       "StackId": "arn:aws:cloudformation:us-east-1:461318555119:stack/amplify-wsrjb-dev-9f194/44905ed0-3e2c-11ef-87de-126cdbdcaf61",
       "AmplifyAppId": "d2z0dwevzfct8y"
+    },
+    "categories": {
+      "api": {
+        "wsrjb": {}
+      }
     }
   }
 }

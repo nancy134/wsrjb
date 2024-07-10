@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-//import { API } from 'aws-amplify';
-//import { createForm } from './graphql/mutations';
+import { generateClient } from 'aws-amplify/data';
+import { createForm } from './graphql/mutations';
 
+const client = generateClient();
 function App() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -25,24 +26,24 @@ function App() {
   };
 
   const handleSubmit = async (e) => {
- //   e.preventDefault();
- //   try {
- //     await API.graphql({
-//        query: createForm,
- //       variables: { input: formData }
- //     });
- //     alert('Form submitted successfully!');
- //     setFormData({
- //       firstName: '',
- //       lastName: '',
- //       email: '',
- //       checkboxes: [],
- //       textBox1: '',
- //       textBox2: ''
- //     });
- //   } catch (error) {
- //     console.error('Error creating form', error);
- //   }
+    e.preventDefault();
+    try {
+      await client.graphql({
+        query: createForm,
+        variables: { input: formData }
+      });
+      alert('Form submitted successfully!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        checkboxes: [],
+        textBox1: '',
+        textBox2: ''
+      });
+    } catch (error) {
+      console.error('Error creating form', error);
+    }
   };
 
   return (
